@@ -22,11 +22,19 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const accordionWrapper = document.querySelectorAll('.wp-block-christian-codez-accordion');
+
+  if(!accordionWrapper) {
+    return;
+  }
   
   accordionWrapper.forEach((wrapper) => {
     const allowMultipleOpen = wrapper.dataset.allowMultipleOpen === 'true';
     const openFirstByDefault = wrapper.dataset.openFirstByDefault === 'true';
     const accordions = wrapper.querySelectorAll('.accordion');
+
+    if (!accordions) {
+      return;
+    }
 
     accordions.forEach((accordion, index) => {
       if(openFirstByDefault && index === 0) {

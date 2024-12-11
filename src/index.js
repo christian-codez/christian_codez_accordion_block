@@ -17,10 +17,10 @@ const accordionIcon = (
 );
 
 registerBlockType( metadata.name, {
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
+  /**
+   * @see ./edit.js
+   */
+  edit: Edit,
   icon: accordionIcon,
   save: Save,
 } );

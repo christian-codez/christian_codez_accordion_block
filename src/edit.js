@@ -3,10 +3,10 @@ import AccordionInspector from './components/Panels/AccordionInspector';
 import Accordion from './components/Edits/Accordion';
 
 export default function Edit(props) {
-	return (
+  return (
     <>
       <AccordionInspector { ...props } />
       <Accordion { ...props } />
     </>
-	);
+  );
 }

@@ -1,6 +1,6 @@
 === Accordion ===
-Contributors:      Christian Nwachukwu
-Tags:              block, accordion, faq, list
+Contributors:      Christian Codez
+Tags:              accordion, faq, list
 Tested up to:      6.6
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later

@@ -1,3 +1,5 @@
-<?php
-  echo $content;
+<?php 
+  if($content) {
+    echo $content;
+  }
 ?>
