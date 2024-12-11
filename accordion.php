@@ -28,3 +28,17 @@ function christian_codez_accordion_block_init() {
   register_block_type( __DIR__ . '/build' );
 }
 add_action( 'init', 'christian_codez_accordion_block_init' );
+
+
+function register_custom_block_category( $categories, $post ) {
+  return array_merge(
+    $categories,
+    [
+      [
+        'slug'  => 'christian-codez',
+        'title' => __( 'Christian Codez', 'christian-codez-accordion' ),
+      ],
+    ]
+  );
+}
+add_filter( 'block_categories_all', 'register_custom_block_category', 10, 2 );
