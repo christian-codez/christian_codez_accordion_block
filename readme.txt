@@ -1,17 +1,16 @@
 === Accordion ===
-Contributors:      The WordPress Contributors
-Tags:              block
+Contributors:      Christian Nwachukwu
+Tags:              block, accordion, faq, list
 Tested up to:      6.6
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Example block scaffolded with Create Block tool.
-
 == Description ==
 
 The Accordion block allows you to create collapsible content sections within your WordPress posts and pages. 
 This is particularly useful for FAQs, where you want to present a list of questions that can be expanded to reveal the answers.
+
 Each section can be expanded or collapsed individually, providing a clean and organized way to display content.
 The block is fully customizable, allowing you to adjust the appearance to match your site's design.
 
