@@ -1,11 +1,13 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps } from '@wordpress/block-editor';
 import './editor.scss';
+import AccordionInspector from './components/Panels/AccordionInspector';
+import Accordion from './components/Edits/Accordion';
 
-export default function Edit() {
+export default function Edit(props) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Accordion – hello from the editor!', 'accordion' ) }
-		</p>
+    <>
+      <AccordionInspector { ...props } />
+      <Accordion { ...props } />
+    </>
 	);
 }

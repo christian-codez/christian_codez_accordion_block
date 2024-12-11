@@ -6,11 +6,42 @@
 	"title": "Accordion",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+  "description": "A customizable accordion block for displaying collapsible content sections.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": true
 	},
+  "attributes": {
+    "accordions": {
+        "type": "array",
+        "default": [
+          {
+            "id": 1,
+            "title": "Accordion Title 1",
+            "content": "Content 1"
+          },
+          {
+            "id": 2,
+            "title": "Accordion Title 2",
+            "content": "Content 2"
+          }
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { 
+              "type": "number"
+            },
+            "title": {
+              "type":"string"
+            },
+            "content": {
+              "type":"string"
+            }
+          }
+        }
+      }
+    },
 	"textdomain": "accordion",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

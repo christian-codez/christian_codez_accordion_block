@@ -1,0 +1,37 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  border-top: 1px solid #f5f5f5;
+  padding: 1.125rem 0;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    h3 {
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .icon {
+      line-height: 1;
+      transition: transform 0.3s ease;
+
+      &.expanded {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  p {
+    margin: 0.5rem 0 0 0;
+  }
+}
