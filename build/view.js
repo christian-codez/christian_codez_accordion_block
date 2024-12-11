@@ -24,9 +24,29 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-/* eslint-disable no-console */
-console.log('Hello World! (from christian-codez-accordion block)');
-/* eslint-enable no-console */
+document.addEventListener('DOMContentLoaded', function () {
+  const accordionWrapper = document.querySelectorAll('.wp-block-christian-codez-accordion');
+  accordionWrapper.forEach(wrapper => {
+    const allowMultipleOpen = wrapper.dataset.allowMultipleOpen === 'true';
+    const openFirstByDefault = wrapper.dataset.openFirstByDefault === 'true';
+    const accordions = wrapper.querySelectorAll('.accordion');
+    accordions.forEach((accordion, index) => {
+      if (openFirstByDefault && index === 0) {
+        accordion.classList.remove('collapsed');
+      }
+      accordion.querySelector('.header').addEventListener('click', () => {
+        const id = accordion.dataset.id;
+        if (!allowMultipleOpen) {
+          const otherOpenAccordions = wrapper.querySelectorAll('.accordion:not(.collapsed):not([data-id="' + id + '"])');
+          otherOpenAccordions.forEach(accordion => {
+            accordion.classList.add('collapsed');
+          });
+        }
+        accordion.classList.toggle('collapsed');
+      });
+    });
+  });
+});
 /******/ })()
 ;
 //# sourceMappingURL=view.js.map

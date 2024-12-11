@@ -4,24 +4,27 @@ import { MdExpandMore, MdExpandLess } from "react-icons/md";
 
 export default function Save( props ) {
   const { attributes: {
-    accordions
+    accordions,
+    allowMultipleOpen,
+    openFirstByDefault
   }} = props;
 
   return (
-      <div { ...useBlockProps.save() }>
-      {accordions.map((accordion, index) => (
-            <div key={index} className='accordion'>
+      <div { ...useBlockProps.save() }
+        data-allow-multiple-open={allowMultipleOpen}
+        data-open-first-by-default={openFirstByDefault}>
+        {accordions.map((accordion, index) => (
+            <div key={index} data-id={accordion.id} className='accordion collapsed'>
               {
                 accordion.title &&
                   <>
                     <div className="header">
                       <h3>{accordion.title} </h3>
-                      <span className='icon'> 
-                        <MdExpandLess />
+                      <span className='icon'>
                         <MdExpandMore />
                         </span>
                     </div>
-                    <p style={{ fontSize: '1rem' }}>{accordion.content}</p>
+                    <p className='content'>{accordion.content}</p>
                   </>
               }
             </div>

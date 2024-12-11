@@ -5,13 +5,20 @@
   "version": "0.1.0",
   "title": "Accordion",
   "category": "widgets",
-  "icon": "smiley",
   "description": "A customizable accordion block for displaying collapsible content sections.",
   "example": {},
   "supports": {
     "html": true
   },
   "attributes": {
+    "allowMultipleOpen": {
+      "type": "boolean",
+      "default": false
+    },
+    "openFirstByDefault": {
+      "type": "boolean",
+      "default": false
+    },
     "accordions": {
       "type": "array",
       "default": [
@@ -42,7 +49,7 @@
       }
     }
   },
-  "textdomain": "accordion",
+  "textdomain": "christian-codez-accordion",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

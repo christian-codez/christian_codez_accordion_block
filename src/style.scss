@@ -1,10 +1,50 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
-
 .wp-block-christian-codez-accordion {
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    border-top: 1px solid #f5f5f5;
+  
+    &:first-child {
+      border-top: none;
+    }
+  
+    &.collapsed {
+      .content {
+        display: none;
+      }
 
+      .icon {
+        transform: rotate(0);
+      }
+    }
+  
+    .header {
+      display: flex;
+      gap: 1rem;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 1.125rem 0;
+  
+      h3 {
+        font-weight: 600;
+        margin: 0;
+        white-space: nowrap;
+        line-height: 1.1;
+      }
+    }
+
+    .icon {
+      line-height: 1.1;
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+  
+    .content {
+      font-size: 1rem;
+      margin: 0 0 1rem 0;
+    }
+  }
 }

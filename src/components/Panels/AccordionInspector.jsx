@@ -1,10 +1,18 @@
 import { __ } from '@wordpress/i18n';
-import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
+import { 
+  PanelBody,
+  PanelRow,
+  TextControl,
+  TextareaControl,
+  Button,
+  ToggleControl,
+  __experimentalDivider as Divider
+} from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 
 const AccordionInspector = (props) => {
   const { attributes, setAttributes } = props;
-  const { accordions } = attributes;
+  const { accordions, allowMultipleOpen, openFirstByDefault } = attributes;
 
   const insertAccordionRow = () => {
     const newAccordion = [...accordions, { 
@@ -40,11 +48,12 @@ const AccordionInspector = (props) => {
         {
           accordions.map((accordion, index) => (
             <div key={index} style={{ marginTop: index !== 0 ? '1rem' : '0' }}>
+              { index !== 0 && <Divider /> }
               <TextControl
                 __next40pxDefaultSize
                 __nextHasNoMarginBottom
-                label="Title"
-                help="Accordion title"
+                label={__("Title")}
+                placeholder={__("Accordion title")}
                 value={accordion.title}
                 onChange={(value) => addAccordion(accordion.id, 'title', value)}
               />
@@ -52,8 +61,8 @@ const AccordionInspector = (props) => {
               <TextareaControl
                 __next40pxDefaultSize
                 __nextHasNoMarginBottom
-                label="Content"
-                help="Accordion content"
+                label={__("Content")}
+                placeholder={__("Accordion content")}
                 value={accordion.content}
                 onChange={(value) => addAccordion(accordion.id, 'content', value)}
               />
@@ -68,7 +77,7 @@ const AccordionInspector = (props) => {
                   isDestructive
                   size='small'
                   onClick={removeAccordionItem(accordion.id)}>
-                  Remove
+                  { __( 'Remove' ) }
                 </Button>
               </div>
             </div>
@@ -83,9 +92,32 @@ const AccordionInspector = (props) => {
           { __( 'Add Item' ) }
         </Button>
       </PanelBody>
+
+      <PanelBody 
+        initialOpen={false}
+        title='Additional Settings'>
+          <PanelRow>
+            <ToggleControl
+              __nextHasNoMarginBottom
+              label={__( 'Allow multiple open' )}
+              checked={ allowMultipleOpen }
+              help={__('Allow multiple accordions to be open at the same time')}
+              onChange={ (value) => setAttributes({ allowMultipleOpen: value }) }
+            />
+          </PanelRow>
+          
+          <PanelRow>
+            <ToggleControl
+              __nextHasNoMarginBottom
+              label={__( 'Open first accordion by default' )}
+              checked={ openFirstByDefault }
+              help={__('Open the first accordion by default')}
+              onChange={ (value) => setAttributes({ openFirstByDefault: value }) }
+            />
+          </PanelRow>
+      </PanelBody>
     </InspectorControls>
   );
 };
-
 
 export default AccordionInspector;

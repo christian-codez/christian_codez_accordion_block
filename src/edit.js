@@ -1,4 +1,3 @@
-import { __ } from '@wordpress/i18n';
 import './editor.scss';
 import AccordionInspector from './components/Panels/AccordionInspector';
 import Accordion from './components/Edits/Accordion';
