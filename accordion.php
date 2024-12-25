@@ -30,15 +30,20 @@ function christian_codez_accordion_block_init() {
 add_action( 'init', 'christian_codez_accordion_block_init' );
 
 
-function register_custom_block_category( $categories, $post ) {
+add_filter( 'block_categories_all', function( $categories, $post ) {
+  foreach ( $categories as $category ) {
+    if ( $category['slug'] === 'christian-codez' ) {
+      return $categories;
+    }
+  }
+
   return array_merge(
-    $categories,
     [
       [
         'slug'  => 'christian-codez',
         'title' => __( 'Christian Codez', 'christian-codez-accordion' ),
       ],
-    ]
+    ],
+    $categories
   );
-}
-add_filter( 'block_categories_all', 'register_custom_block_category', 10, 2 );
+}, 10, 2 );
